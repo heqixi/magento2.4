@@ -1,1 +1,13 @@
-/usr/heqg/magento/magento/vendor/magento/module-two-factor-auth/view/adminhtml/web/css/tfa-screen.css
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+.login-content > li {
+    list-style: none;
+}
+.tfa-logout-link {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}

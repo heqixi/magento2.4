@@ -1,2 +1,0 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1625628981;s:6:"expire";i:9999999999;s:4:"tags";s:23:"e5b_WEBSERVICE,e5b_MAGE";}
-{"services":[],"routes":{"async\/bulk\/V1\/products":{"PUT":"async\/bulk\/V1\/products\/bySku"},"asyncProducts":{"POST":"async\/V1\/products"}}}

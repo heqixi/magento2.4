@@ -1,1 +1,12 @@
-/usr/heqg/magento/magento/vendor/magento/module-catalog/view/adminhtml/web/js/components/visible-on-option/date.js
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+define([
+    'Magento_Ui/js/form/element/date',
+    'Magento_Catalog/js/components/visible-on-option/strategy'
+], function (Element, strategy) {
+    'use strict';
+
+    return Element.extend(strategy);
+});

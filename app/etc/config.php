@@ -315,6 +315,8 @@ return [
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Dotdigitalgroup_Sms' => 1,
+        'Hiddentechies_Base' => 1,
+        'Hiddentechies_Bentriz' => 1,
         'Klarna_Core' => 1,
         'Klarna_Ordermanagement' => 1,
         'Klarna_Kp' => 1,

@@ -1,1 +1,15 @@
-/usr/heqg/magento/magento/vendor/magento/module-catalog/view/adminhtml/web/js/components/use-parent-settings/select.js
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @api
+ */
+define([
+    'Magento_Ui/js/form/element/select'
+], function (Component) {
+    'use strict';
+
+    return Component;
+});
