@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/vendor/magento/module-integration/view/adminhtml/web/js/integration.js

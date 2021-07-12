@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/lib/web/jquery/jquery.metadata.js
