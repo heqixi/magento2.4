@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/lib/web/mage/smart-keyboard-handler.js
