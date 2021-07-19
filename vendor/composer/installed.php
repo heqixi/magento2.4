@@ -433,6 +433,15 @@
             'reference' => NULL,
             'dev_requirement' => false,
         ),
+        'dragdropr/magento2' => array(
+            'pretty_version' => '1.1.14',
+            'version' => '1.1.14.0',
+            'type' => 'magento2-module',
+            'install_path' => __DIR__ . '/../dragdropr/magento2',
+            'aliases' => array(),
+            'reference' => NULL,
+            'dev_requirement' => false,
+        ),
         'elasticsearch/elasticsearch' => array(
             'pretty_version' => 'v7.7.0',
             'version' => '7.7.0.0',
@@ -4354,15 +4363,6 @@
             'reference' => '994ecccd8f3283ecf5ac33254543eb0ac946d525',
             'dev_requirement' => true,
         ),
-        'phpseclib/bcmath_compat' => array(
-            'pretty_version' => '1.0.6',
-            'version' => '1.0.6.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../phpseclib/bcmath_compat',
-            'aliases' => array(),
-            'reference' => 'f6f03d3af2ef95fc35b30abdd29f20ee11276a65',
-            'dev_requirement' => false,
-        ),
         'phpseclib/mcrypt_compat' => array(
             'pretty_version' => '1.0.8',
             'version' => '1.0.8.0',
@@ -4537,8 +4537,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '1.0.0',
+                0 => '1.0.0',
+                1 => '1.0',
             ),
         ),
         'ralouphie/getallheaders' => array(

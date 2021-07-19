@@ -1,0 +1,24 @@
+Installation
+=====================================
+
+1. Upload app, shell, syst folders to your magento root directory
+
+2. Login to your server with your SSH account
+
+3. Switch to apache user
+
+4. change to magento root directory
+
+5. run this command line: php bin/magento module:enable MGS_Core
+6. run this command line: php bin/magento module:enable MGS_Fbuilder
+7. run this command line: php bin/magento setup:upgrade
+8. run this command line: php bin/magento setup:static-content:deploy or php bin/magento setup:static-content:deploy -f
+
+9. Log in as admin and refresh all caches (System > Cache Management). If you see error 404 on the extension setting section, just try logout and log in again
+
+
+Installation is complete.
+
+To know how to use front-end builder, please visit http://themes.magesolution.com/fbuilder/builder-account
+
+Thank you for the purchase.

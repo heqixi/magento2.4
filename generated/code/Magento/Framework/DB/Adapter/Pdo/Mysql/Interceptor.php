@@ -1,6 +1,8 @@
 <?php
 namespace Magento\Framework\DB\Adapter\Pdo\Mysql;
 
+use Magento\Framework\App\ObjectManager;
+
 /**
  * Interceptor class for @see \Magento\Framework\DB\Adapter\Pdo\Mysql
  */
@@ -38,6 +40,7 @@ class Interceptor extends \Magento\Framework\DB\Adapter\Pdo\Mysql implements \Ma
     public function rollBack()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'rollBack');
+        ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('rollBack subjectType'.$this->subjectType);
         return $pluginInfo ? $this->___callPlugins('rollBack', func_get_args(), $pluginInfo) : parent::rollBack();
     }
 

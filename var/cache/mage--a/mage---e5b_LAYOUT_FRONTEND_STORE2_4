@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1626109709;s:6:"expire";i:1657645709;s:4:"tags";s:37:"e5b_LAYOUT_GENERAL_CACHE_TAG,e5b_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1626721296;s:6:"expire";i:1658257296;s:4:"tags";s:37:"e5b_LAYOUT_GENERAL_CACHE_TAG,e5b_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -6933,6 +6933,63 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1626109709;s:6:"expire";i:1657645709;s:4:"t
    </referenceBlock>
    <referenceContainer name="cart.summary">
       <block class="Klarna\Onsitemessaging\Block\Cart" name="klarna.osm.cart" as="klarna_osm_cart" template="Klarna_Onsitemessaging::html/placement/cart.phtml" after="-"/>
+   </referenceContainer>
+</body>
+</handle><handle id="cms_index_index"><head>
+   <script src="MGS_Fbuilder::js/custom.js"/>
+</head>
+</handle><handle id="cms_page_view"><head>
+   <script src="MGS_Fbuilder::js/custom.js"/>
+</head>
+</handle><handle id="default"><body>
+   <referenceContainer name="head.additional">
+      <block class="MGS\Fbuilder\Block\Page\Head" name="fbuilder.head.init" ifconfig="fbuilder/general/is_enabled" template="MGS_Fbuilder::html/head.phtml"/>
+   </referenceContainer>
+   <referenceContainer name="after.body.start">
+      <block class="MGS\Fbuilder\Block\Panel\Toppanel" name="builder_panel" template="panel/top_panel.phtml" ifconfig="fbuilder/general/is_enabled"/>
+   </referenceContainer>
+</body>
+</handle><handle id="fbuilder_create_block"><update handle="fbuilder_popup"/>
+<body>
+   <referenceContainer name="content">
+      <block class="MGS\Fbuilder\Block\Panel\Create\Block" name="fbuilder.block.new" template="panel/create/block.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="fbuilder_create_element"><update handle="fbuilder_popup"/>
+<update handle="fbuilder_editor"/>
+<body>
+   <referenceContainer name="content">
+      <block class="MGS\Fbuilder\Block\Panel\Create\Element" name="fbuilder.element" before="-"/>
+   </referenceContainer>
+</body>
+</handle><handle id="fbuilder_edit_section"><update handle="fbuilder_popup"/>
+<body>
+   <referenceContainer name="content">
+      <block class="MGS\Fbuilder\Block\Panel\Edit\Section" name="fbuilder.section.edit" template="panel/edit/section.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="fbuilder_editor"><head>
+   <link src="MGS_Fbuilder::js/bootstrap/editor.js"/>
+   <css src="prototype/windows/themes/default.css"/>
+</head>
+<body/>
+</handle><handle id="fbuilder_popup" layout="empty"><head>
+   <script src="MGS_Fbuilder::js/popup.js"/>
+   <script src="MGS_Fbuilder::js/mColorPicker.js"/>
+</head>
+<body>
+   <attribute name="class" value="panel-popup"/>
+   <referenceBlock name="home.script" remove="true"/>
+   <referenceBlock name="mgs.script" remove="true"/>
+   <referenceContainer name="header.container" remove="true"/>
+   <referenceContainer name="porto_header" remove="true"/>
+   <referenceContainer name="page.top" remove="true"/>
+   <referenceContainer name="columns.top" remove="true"/>
+   <referenceContainer name="page.bottom.container" remove="true"/>
+   <referenceContainer name="footer-container" remove="true"/>
+   <referenceContainer name="before.body.end" remove="true"/>
+   <referenceContainer name="content">
+      <block class="Magento\Framework\View\Element\Template" name="fbuilder.block.new" template="MGS_Fbuilder::panel/create/script.phtml"/>
    </referenceContainer>
 </body>
 </handle><handle id="braintree_googlepay_review" layout="1column"><head>

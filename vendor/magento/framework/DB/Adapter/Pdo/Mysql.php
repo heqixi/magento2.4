@@ -290,6 +290,7 @@ class Mysql extends \Zend_Db_Adapter_Pdo_Mysql implements AdapterInterface
     {
         if ($this->_isRolledBack) {
             // phpcs:ignore Magento2.Exceptions.DirectThrow.FoundDirectThrow
+            \Magento\Framework\App\ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('beginTransaction throw');
             throw new \Exception(AdapterInterface::ERROR_ROLLBACK_INCOMPLETE_MESSAGE);
         }
         if ($this->_transactionLevel === 0) {
@@ -318,6 +319,7 @@ class Mysql extends \Zend_Db_Adapter_Pdo_Mysql implements AdapterInterface
             throw new \Exception(AdapterInterface::ERROR_ASYMMETRIC_COMMIT_MESSAGE);
         } elseif ($this->_isRolledBack) {
             // phpcs:ignore Magento2.Exceptions.DirectThrow.FoundDirectThrow
+            \Magento\Framework\App\ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('commit');
             throw new \Exception(AdapterInterface::ERROR_ROLLBACK_INCOMPLETE_MESSAGE);
         }
         --$this->_transactionLevel;
@@ -333,11 +335,13 @@ class Mysql extends \Zend_Db_Adapter_Pdo_Mysql implements AdapterInterface
     public function rollBack()
     {
         if ($this->_transactionLevel === 1) {
+            ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('Mysql rollBack _transactionLevel == 1');
             $this->logger->startTimer();
             parent::rollBack();
             $this->_isRolledBack = false;
             $this->logger->logStats(LoggerInterface::TYPE_TRANSACTION, 'ROLLBACK');
         } elseif ($this->_transactionLevel === 0) {
+            ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('Mysql rollBack _transactionLevel == 0');
             // phpcs:ignore Magento2.Exceptions.DirectThrow.FoundDirectThrow
             throw new \Exception(AdapterInterface::ERROR_ASYMMETRIC_ROLLBACK_MESSAGE);
         } else {

@@ -5,7 +5,9 @@
  */
 namespace Magento\Framework\Interception;
 
+use Magento\FunctionalTestingFramework\Util\Logger\LoggingUtil;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\Oauth\Exception;
 
 /**
  * Interceptor trait that contains the common logic for all interceptor classes.
@@ -100,7 +102,6 @@ trait Interceptor
         $subject = $this;
         $type = $this->subjectType;
         $pluginList = $this->pluginList;
-
         $next = function (...$arguments) use (
             $method,
             &$pluginInfo,
@@ -125,7 +126,6 @@ trait Interceptor
                     }
                 }
             }
-
             if (isset($currentPluginInfo[DefinitionInterface::LISTENER_AROUND])) {
                 // Call 'around' listener
                 $code = $currentPluginInfo[DefinitionInterface::LISTENER_AROUND];
@@ -135,7 +135,11 @@ trait Interceptor
                 $result = $pluginInstance->$pluginMethod($subject, $next, ...array_values($arguments));
             } else {
                 // Call original method
-                $result = $subject->___callParent($method, $arguments);
+                try {
+                    $result = $subject->___callParent($method, $arguments);
+                } catch (Exception $e) {
+                    \Magento\Framework\App\ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('exception .....'.$e->getMessage());
+                }
             }
 
             if (isset($currentPluginInfo[DefinitionInterface::LISTENER_AFTER])) {

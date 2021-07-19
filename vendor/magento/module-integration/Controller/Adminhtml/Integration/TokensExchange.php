@@ -9,10 +9,11 @@ declare(strict_types=1);
 namespace Magento\Integration\Controller\Adminhtml\Integration;
 
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Integration\Controller\Adminhtml\Integration;
 use Magento\Integration\Model\Integration as IntegrationModel;
 
-class TokensExchange extends Integration implements HttpPostActionInterface
+class TokensExchange extends Integration implements HttpPostActionInterface, HttpGetActionInterface
 {
     /**
      * Let the admin know that integration has been sent for activation and token exchange is in process.

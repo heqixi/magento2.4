@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var $block \DragDropr\Magento2\Block\DataSource;
+ */
+;?>
+<?php if ($block->config()->isEnabled()):?>
+    <script type="text/javascript">
+    //<![CDATA[
+        require(['DragDropr_Magento2/js/dragdropr'], function () {
+            if (window.DragDropr && window.DragDropr.Plugins) {
+                // Register plugin workers in current context that attach it to existing editors
+                window.DragDropr.Plugins.registerWorkers([
+                    window.DragDropr.Plugins.FroalaPlugin,
+                    window.DragDropr.Plugins.RedactorPlugin,
+                    window.DragDropr.Plugins.TinyMCEPlugin
+                ]);
+            }
+
+            var dataSource = <?php echo json_encode($block->dataSource());?>,
+                setDataSource = function () {
+                    if (window.DragDropr && window.DragDropr.getConfig) {
+                        window.DragDropr.getConfig().write('integration', dataSource);
+                        document.removeEventListener('DragDropr.Config', setDataSource);
+                    }
+                };
+            document.addEventListener('DragDropr.Config', setDataSource);
+            setDataSource();
+        });
+    //]]>
+    </script>
+<?php endif;?>

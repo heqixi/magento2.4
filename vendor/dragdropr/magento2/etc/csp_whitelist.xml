@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    DragDropr
+ * @package     DragDropr_Magento2
+ * @author      Ricards Zalitis with THANKS to atipso GmbH <hello@dragdropr.com>
+ * @copyright   2020 atipso GmbH
+ * @license     Unlimited Commercial License
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="frame-src">
+            <values>
+                <value id="dragdropr" type="host">https://app.dragdropr.com</value>
+            </values>
+        </policy>
+        <policy id="form-action">
+            <values>
+                <value id="dragdropr" type="host">https://app.dragdropr.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="dragdropr" type="host">https://cdn.dragdropr.com</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="dragdropr" type="host">https://app.dragdropr.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="dragdropr" type="host">https://app.dragdropr.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

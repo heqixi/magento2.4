@@ -315,6 +315,26 @@ require.config(config);
 var config = {
     map: {
         '*': {
+            priceBox:             'Magento_Catalog/js/price-box',
+            priceOptionDate:      'Magento_Catalog/js/price-option-date',
+            priceOptionFile:      'Magento_Catalog/js/price-option-file',
+            priceOptions:         'Magento_Catalog/js/price-options',
+            priceUtils:           'Magento_Catalog/js/price-utils'
+        }
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
             categoryForm:         'Magento_Catalog/catalog/category/form',
             newCategoryDialog:    'Magento_Catalog/js/new-category-dialog',
             categoryTree:         'Magento_Catalog/js/category-tree',
@@ -338,26 +358,6 @@ var config = {
             'Magento_Catalog/js/components/use-parent-settings/single-checkbox': {
                 'Magento_Catalog/js/components/use-parent-settings/toggle-disabled-mixin': true
             }
-        }
-    }
-};
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
-    map: {
-        '*': {
-            priceBox:             'Magento_Catalog/js/price-box',
-            priceOptionDate:      'Magento_Catalog/js/price-option-date',
-            priceOptionFile:      'Magento_Catalog/js/price-option-file',
-            priceOptions:         'Magento_Catalog/js/price-options',
-            priceUtils:           'Magento_Catalog/js/price-utils'
         }
     }
 };

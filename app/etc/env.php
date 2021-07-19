@@ -82,5 +82,19 @@ return [
     ],
     'install' => [
         'date' => 'Sat, 26 Jun 2021 18:27:32 +0000'
+    ],
+    'dev' => [
+        'debug' => [
+            'debug_logging' => 1
+        ],
+        'syslog' => [
+            'syslog_logging' => 1
+        ]
+    ],
+    'db_logger' => [
+        'output' => 'file',
+        'log_everything' => 1,
+        'query_time_threshold' => '0.001',
+        'include_stacktrace' => 1
     ]
 ];

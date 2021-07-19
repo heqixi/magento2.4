@@ -332,11 +332,8 @@ require.config(config);
  */
 
 var config = {
-    map: {
-        '*': {
-            requireCookie: 'Magento_Cookie/js/require-cookie',
-            cookieNotices: 'Magento_Cookie/js/notices'
-        }
+    paths: {
+        'jquery/jquery-storageapi': 'Magento_Cookie/js/jquery.storageapi.extended'
     }
 };
 
@@ -349,8 +346,11 @@ require.config(config);
  */
 
 var config = {
-    paths: {
-        'jquery/jquery-storageapi': 'Magento_Cookie/js/jquery.storageapi.extended'
+    map: {
+        '*': {
+            requireCookie: 'Magento_Cookie/js/require-cookie',
+            cookieNotices: 'Magento_Cookie/js/notices'
+        }
     }
 };
 
@@ -714,9 +714,8 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            orderReview: 'Magento_Paypal/js/order-review',
-            'Magento_Paypal/order-review': 'Magento_Paypal/js/order-review',
-            paypalCheckout: 'Magento_Paypal/js/paypal-checkout'
+            transparent: 'Magento_Payment/js/transparent',
+            'Magento_Payment/transparent': 'Magento_Payment/js/transparent'
         }
     }
 };
@@ -732,8 +731,9 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            transparent: 'Magento_Payment/js/transparent',
-            'Magento_Payment/transparent': 'Magento_Payment/js/transparent'
+            orderReview: 'Magento_Paypal/js/order-review',
+            'Magento_Paypal/order-review': 'Magento_Paypal/js/order-review',
+            paypalCheckout: 'Magento_Paypal/js/paypal-checkout'
         }
     }
 };
@@ -870,11 +870,12 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            editTrigger: 'mage/edit-trigger',
-            addClass: 'Magento_Translation/js/add-class',
-            'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
+            mageTranslationDictionary: 'Magento_Translation/js/mage-translation-dictionary'
         }
-    }
+    },
+    deps: [
+        'mageTranslationDictionary'
+    ]
 };
 
 require.config(config);
@@ -888,12 +889,11 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            mageTranslationDictionary: 'Magento_Translation/js/mage-translation-dictionary'
+            editTrigger: 'mage/edit-trigger',
+            addClass: 'Magento_Translation/js/add-class',
+            'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
         }
-    },
-    deps: [
-        'mageTranslationDictionary'
-    ]
+    }
 };
 
 require.config(config);
@@ -1108,6 +1108,35 @@ var config = {
     }
 };
 
+require.config(config);
+})();
+(function() {
+var config = {
+	"map": {
+		"*": {
+			"mgsowlcarousel": "MGS_Fbuilder/js/owl.carousel.min",
+			"magnificPopup": "MGS_Fbuilder/js/jquery.magnific-popup.min",
+			"lazyload": "MGS_Fbuilder/js/jquery.lazyload",
+			"waypoints": "MGS_Fbuilder/js/waypoints.min",
+			"fbuilderSearch": "MGS_Fbuilder/js/search-suggest",
+			"chartjs": "MGS_Fbuilder/js/chart.min",
+		}
+	},
+
+	"paths": {  
+		"mgsowlcarousel": "MGS_Fbuilder/js/owl.carousel.min",
+		"magnificPopup": "MGS_Fbuilder/js/jquery.magnific-popup.min",
+		"lazyload": "MGS_Fbuilder/js/jquery.lazyload",
+		"waypoints": "MGS_Fbuilder/js/waypoints.min",
+		"chartjs": "MGS_Fbuilder/js/chart.min"
+	},   
+    "shim": {
+		"MGS_Fbuilder/js/owl.carousel.min": ["jquery"],
+		"MGS_Fbuilder/js/jquery.magnific-popup.min": ["jquery"],
+		"MGS_Fbuilder/js/jquery.lazyload": ["jquery"],
+		"MGS_Fbuilder/js/waypoints.min": ["jquery"]
+	}
+};
 require.config(config);
 })();
 (function() {

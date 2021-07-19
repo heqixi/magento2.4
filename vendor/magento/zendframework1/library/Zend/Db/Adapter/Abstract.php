@@ -30,6 +30,7 @@
  * @see Zend_Db_Select
  */
 #require_once 'Zend/Db/Select.php';
+use Magento\Framework\App\ObjectManager;
 
 /**
  * Class for connecting to SQL databases and performing common operations.
@@ -520,9 +521,12 @@ abstract class Zend_Db_Adapter_Abstract
     public function rollBack()
     {
         $this->_connect();
+        ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('Abstract rollBack before');
         $q = $this->_profiler->queryStart('rollback', Zend_Db_Profiler::TRANSACTION);
         $this->_rollBack();
+        ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('Abstract rollBack after');
         $this->_profiler->queryEnd($q);
+        ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('Abstract rollBack queryEnd');
         return $this;
     }
 
