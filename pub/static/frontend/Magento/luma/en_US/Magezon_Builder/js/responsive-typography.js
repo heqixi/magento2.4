@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/app/code/Magezon/Builder/view/frontend/web/js/responsive-typography.js

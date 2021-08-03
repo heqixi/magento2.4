@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/app/code/Magezon/PageBuilderIconBox/view/base/web/js/builder/element/iconbox.js

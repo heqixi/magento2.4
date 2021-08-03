@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/app/code/Mageplaza/AjaxLayer/view/frontend/web/js/model/loader.js

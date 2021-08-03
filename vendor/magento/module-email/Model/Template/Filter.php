@@ -1084,7 +1084,7 @@ class Filter extends \Magento\Framework\Filter\Template
             $this->resetAfterFilterCallbacks();
 
             if ($this->_appState->getMode() == \Magento\Framework\App\State::MODE_DEVELOPER) {
-                $value = sprintf(__('Error filtering template: %s'), $e->getMessage());
+                $value = sprintf('Error filtering template: %s', $e->getMessage());
             } else {
                 $value = __("We're sorry, an error has occurred while generating this content.");
             }

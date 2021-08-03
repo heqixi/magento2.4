@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/app/code/Magezon/PageBuilderPageableContainer/view/base/web/js/builder/element/pageable_container.js

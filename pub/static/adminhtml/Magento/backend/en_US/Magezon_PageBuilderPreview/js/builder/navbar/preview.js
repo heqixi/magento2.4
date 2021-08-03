@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/app/code/Magezon/PageBuilderPreview/view/base/web/js/builder/navbar/preview.js

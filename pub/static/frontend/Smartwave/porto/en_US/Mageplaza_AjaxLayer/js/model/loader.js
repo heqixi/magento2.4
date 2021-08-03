@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/app/design/frontend/Smartwave/porto/Mageplaza_AjaxLayer/web/js/model/loader.js

@@ -478,6 +478,24 @@
             'reference' => '0b78f89d8e0bb9e380046c31adfa40347e9f663b',
             'dev_requirement' => false,
         ),
+        'facebook/facebook-for-magento2' => array(
+            'pretty_version' => '1.4.2',
+            'version' => '1.4.2.0',
+            'type' => 'magento2-module',
+            'install_path' => __DIR__ . '/../facebook/facebook-for-magento2',
+            'aliases' => array(),
+            'reference' => NULL,
+            'dev_requirement' => false,
+        ),
+        'facebook/php-business-sdk' => array(
+            'pretty_version' => '9.0.3',
+            'version' => '9.0.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../facebook/php-business-sdk',
+            'aliases' => array(),
+            'reference' => '4d39da6c1e1cdc9916082d97a5191a549e127b0f',
+            'dev_requirement' => false,
+        ),
         'facebook/webdriver' => array(
             'dev_requirement' => true,
             'replaced' => array(

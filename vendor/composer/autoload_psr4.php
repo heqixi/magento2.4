@@ -464,6 +464,8 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'GraphQL\\' => array($vendorDir . '/webonyx/graphql-php/src'),
     'Facebook\\WebDriver\\' => array($vendorDir . '/php-webdriver/webdriver/lib'),
+    'Facebook\\BusinessExtension\\' => array($vendorDir . '/facebook/facebook-for-magento2'),
+    'FacebookAds\\' => array($vendorDir . '/facebook/php-business-sdk/src/FacebookAds'),
     'Endroid\\QrCode\\' => array($vendorDir . '/endroid/qr-code/src'),
     'Elasticsearch\\' => array($vendorDir . '/elasticsearch/elasticsearch/src/Elasticsearch'),
     'DragDropr\\Magento2\\' => array($vendorDir . '/dragdropr/magento2'),

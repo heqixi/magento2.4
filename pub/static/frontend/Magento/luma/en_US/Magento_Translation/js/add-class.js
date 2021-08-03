@@ -1,12 +1,1 @@
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-define(['jquery'], function ($) {
-    'use strict';
-
-    return function (config, element) {
-        $(element).addClass(config.class);
-    };
-});
+/usr/heqg/magento/magento/vendor/magento/module-translation/view/frontend/web/js/add-class.js

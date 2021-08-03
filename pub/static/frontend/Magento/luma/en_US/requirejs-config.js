@@ -714,8 +714,9 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            transparent: 'Magento_Payment/js/transparent',
-            'Magento_Payment/transparent': 'Magento_Payment/js/transparent'
+            orderReview: 'Magento_Paypal/js/order-review',
+            'Magento_Paypal/order-review': 'Magento_Paypal/js/order-review',
+            paypalCheckout: 'Magento_Paypal/js/paypal-checkout'
         }
     }
 };
@@ -731,9 +732,8 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            orderReview: 'Magento_Paypal/js/order-review',
-            'Magento_Paypal/order-review': 'Magento_Paypal/js/order-review',
-            paypalCheckout: 'Magento_Paypal/js/paypal-checkout'
+            transparent: 'Magento_Payment/js/transparent',
+            'Magento_Payment/transparent': 'Magento_Payment/js/transparent'
         }
     }
 };
@@ -870,12 +870,11 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            mageTranslationDictionary: 'Magento_Translation/js/mage-translation-dictionary'
+            editTrigger: 'mage/edit-trigger',
+            addClass: 'Magento_Translation/js/add-class',
+            'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
         }
-    },
-    deps: [
-        'mageTranslationDictionary'
-    ]
+    }
 };
 
 require.config(config);
@@ -889,11 +888,12 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            editTrigger: 'mage/edit-trigger',
-            addClass: 'Magento_Translation/js/add-class',
-            'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
+            mageTranslationDictionary: 'Magento_Translation/js/mage-translation-dictionary'
         }
-    }
+    },
+    deps: [
+        'mageTranslationDictionary'
+    ]
 };
 
 require.config(config);
@@ -1054,16 +1054,6 @@ var config = {
 require.config(config);
 })();
 (function() {
-var config = {
-    map: {
-        '*': {
-            bentrizowlcarousel: 'Hiddentechies_Bentriz/js/owl.carousel',
-        }
-    }
-};
-require.config(config);
-})();
-(function() {
 /**
  * This file is part of the Klarna KP module
  *
@@ -1111,31 +1101,245 @@ var config = {
 require.config(config);
 })();
 (function() {
-var config = {
-	"map": {
-		"*": {
-			"mgsowlcarousel": "MGS_Fbuilder/js/owl.carousel.min",
-			"magnificPopup": "MGS_Fbuilder/js/jquery.magnific-popup.min",
-			"lazyload": "MGS_Fbuilder/js/jquery.lazyload",
-			"waypoints": "MGS_Fbuilder/js/waypoints.min",
-			"fbuilderSearch": "MGS_Fbuilder/js/search-suggest",
-			"chartjs": "MGS_Fbuilder/js/chart.min",
-		}
-	},
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
 
-	"paths": {  
-		"mgsowlcarousel": "MGS_Fbuilder/js/owl.carousel.min",
-		"magnificPopup": "MGS_Fbuilder/js/jquery.magnific-popup.min",
-		"lazyload": "MGS_Fbuilder/js/jquery.lazyload",
-		"waypoints": "MGS_Fbuilder/js/waypoints.min",
-		"chartjs": "MGS_Fbuilder/js/chart.min"
-	},   
-    "shim": {
-		"MGS_Fbuilder/js/owl.carousel.min": ["jquery"],
-		"MGS_Fbuilder/js/jquery.magnific-popup.min": ["jquery"],
-		"MGS_Fbuilder/js/jquery.lazyload": ["jquery"],
-		"MGS_Fbuilder/js/waypoints.min": ["jquery"]
-	}
+var config = {
+    paths: {
+        'mageplaza/core/jquery/popup': 'Mageplaza_Core/js/jquery.magnific-popup.min',
+        'mageplaza/core/owl.carousel': 'Mageplaza_Core/js/owl.carousel.min',
+        'mageplaza/core/bootstrap': 'Mageplaza_Core/js/bootstrap.min'
+    },
+    shim: {
+        "mageplaza/core/jquery/popup": ["jquery"],
+        "mageplaza/core/owl.carousel": ["jquery"],
+        "mageplaza/core/bootstrap": ["jquery"]
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) 2016-2018 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+var config = {
+    paths: {
+        'mageplaza/core/jquery/popup': 'Mageplaza_Core/js/jquery.magnific-popup.min',
+        'mageplaza/core/owl.carousel': 'Mageplaza_Core/js/owl.carousel.min',
+        'mageplaza/core/bootstrap': 'Mageplaza_Core/js/bootstrap.min',
+        mpIonRangeSlider: 'Mageplaza_Core/js/ion.rangeSlider.min',
+        touchPunch: 'Mageplaza_Core/js/jquery.ui.touch-punch.min',
+        mpDevbridgeAutocomplete: 'Mageplaza_Core/js/jquery.autocomplete.min'
+    },
+    shim: {
+        "mageplaza/core/jquery/popup": ["jquery"],
+        "mageplaza/core/owl.carousel": ["jquery"],
+        "mageplaza/core/bootstrap": ["jquery"],
+        mpIonRangeSlider: ["jquery"],
+        mpDevbridgeAutocomplete: ["jquery"] 
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_AjaxLayer
+ * @copyright   Copyright (c) Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+var config = {
+    paths: {
+        mpAjax: 'Mageplaza_AjaxLayer/js/view/layer'
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license sliderConfig is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_LayeredNavigation
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+var config = {
+    paths: {
+        mpLayer: 'Mageplaza_LayeredNavigation/js/view/layer'
+    },
+    shim: {
+        mpLayer: ['touchPunch']
+    }
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    map: {
+        "*": {
+            "mgz.owlcarousel": "Magezon_Core/js/owl.carousel.min"
+        }
+    },
+    shim: {
+       "mgz.owlcarousel": {
+            deps:['jquery']
+        },
+        "Magezon_Core/js/owl.carousel.min": {
+            deps:['jquery']
+        },
+        'Magezon_Core/js/jquery-scrolltofixed-min': {
+            deps: ['jquery']
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
+var config = {
+    map: {
+        '*': {
+            magezonBuilder: 'Magezon_Builder/js/magezon-builder',
+            jarallax: 'Magezon_Builder/js/jarallax/jarallax.min',
+            jarallaxVideo: 'Magezon_Builder/js/jarallax/jarallax-video',
+            waypoints: 'Magezon_Builder/js/waypoints/jquery.waypoints',
+            mgzTabs: 'Magezon_Builder/js/tabs'
+        }
+    },
+    shim: {
+        jarallax: {
+            exports: 'jarallax',
+            deps: ['jquery']
+        },
+        jarallaxVideo: {
+            deps: ['jarallax']
+        },
+        waypoints: {
+            deps: ['jarallax', 'jquery']
+        },
+        magezonBuilder: {
+            deps: ['waypoints', 'mage/bootstrap']
+        },
+        'Magezon_Builder/js/magezon-builder': {
+            deps: ['jquery', 'waypoints', 'mage/bootstrap']
+        },
+        'Magezon_Builder/js/carousel': {
+            deps: ['jquery']
+        },
+        'Magezon_Builder/js/countdown': {
+            deps: ['jquery']
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
+var config = {
+    paths: {
+        mgzNumberCounter: 'Magezon_PageBuilder/js/number-counter',
+        mgzFotorama: 'Magezon_PageBuilder/vendor/fotorama/fotorama',
+        mgzSlider: 'Magezon_PageBuilder/js/slider',
+        mgzOwlSlider: 'Magezon_Builder/js/carousel'
+    },
+    shim: {
+        'Magezon_PageBuilder/vendor/fotorama/fotorama': {
+            deps: ['jquery']
+        },
+        'mgzOwlSlider': {
+            deps: ['jquery']
+        },
+        'mgzSlider': {
+            deps: ['jquery']
+        },
+        'Magezon_Builder/js/carousel': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/common': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/flickr': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/gallery': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/instagram': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/number-counter': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/photoswipe': {
+            deps: ['jquery']
+        },
+        'Magezon_PageBuilder/js/slider': {
+            deps: ['jquery']
+        }
+    }
 };
 require.config(config);
 })();

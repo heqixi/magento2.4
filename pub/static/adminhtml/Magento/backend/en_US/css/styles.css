@@ -11,6 +11,7 @@
 .abs-action-delete,
 .action-close:before,
 .timeline-action:before,
+.mgz-control-checkbox + label:before,
 .admin__control-flexfield-table .admin__control-table .icon-edit:before,
 .action-advanced-reports:after,
 .admin__menu [target='_blank']:after,
@@ -112,6 +113,7 @@
 .abs-action-delete > span,
 .ui-datepicker-prev span,
 .ui-datepicker-next span,
+.mgz__actions-switch-checkbox,
 .tooltip .help span span,
 .tooltip .help a span,
 .dashboard-diagram-switcher .label,
@@ -723,7 +725,9 @@ nav ol {
 .admin__control-addon [class*='admin__control-'][class] ~ [class*='admin__addon-']:last-child:before,
 .selectmenu,
 [class*='adminhtml-giftwrapping-'] .field-base_price .admin__control-addon [class*='admin__control-'][class] ~ .addafter:last-child:before,
-.ui-datepicker .ui-datepicker-title select {
+.ui-datepicker .ui-datepicker-title select,
+#mgzreports-datepicker select.monthselect,
+#mgzreports-datepicker select.yearselect {
   -webkit-appearance: none;
   background-color: #ffffff;
   border: 1px solid #adadad;
@@ -747,7 +751,9 @@ nav ol {
 .selectmenu:hover,
 .selectmenu:hover .selectmenu-toggle:before,
 [class*='adminhtml-giftwrapping-'] .field-base_price .admin__control-addon [class*='admin__control-'][class]:hover ~ .addafter:last-child:before,
-.ui-datepicker .ui-datepicker-title select:hover {
+.ui-datepicker .ui-datepicker-title select:hover,
+#mgzreports-datepicker select.monthselect:hover,
+#mgzreports-datepicker select.yearselect:hover {
   border-color: #878787;
 }
 .admin__control-text:focus,
@@ -760,7 +766,9 @@ nav ol {
 .selectmenu._focus,
 .selectmenu._focus .selectmenu-toggle:before,
 [class*='adminhtml-giftwrapping-'] .field-base_price .admin__control-addon [class*='admin__control-'][class]:focus ~ .addafter:last-child:before,
-.ui-datepicker .ui-datepicker-title select:focus {
+.ui-datepicker .ui-datepicker-title select:focus,
+#mgzreports-datepicker select.monthselect:focus,
+#mgzreports-datepicker select.yearselect:focus {
   border-color: #007bdb;
   box-shadow: none;
   outline: 0;
@@ -772,7 +780,9 @@ nav ol {
 .admin__control-textarea[disabled],
 .admin__control-addon [class*='admin__control-'][class][disabled] ~ [class*='admin__addon-']:last-child:before,
 [class*='adminhtml-giftwrapping-'] .field-base_price .admin__control-addon [class*='admin__control-'][class][disabled] ~ .addafter:last-child:before,
-.ui-datepicker .ui-datepicker-title select[disabled] {
+.ui-datepicker .ui-datepicker-title select[disabled],
+#mgzreports-datepicker select.monthselect[disabled],
+#mgzreports-datepicker select.yearselect[disabled] {
   background-color: #e9e9e9;
   border-color: #adadad;
   color: #303030;
@@ -988,7 +998,9 @@ input[type='radio'].admin__control-checkbox {
   min-width: 4rem;
 }
 .admin__control-select,
-.ui-datepicker .ui-datepicker-title select {
+.ui-datepicker .ui-datepicker-title select,
+#mgzreports-datepicker select.monthselect,
+#mgzreports-datepicker select.yearselect {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1005,18 +1017,24 @@ input[type='radio'].admin__control-checkbox {
   transition: border-color 0.1s linear;
 }
 .admin__control-select:hover,
-.ui-datepicker .ui-datepicker-title select:hover {
+.ui-datepicker .ui-datepicker-title select:hover,
+#mgzreports-datepicker select.monthselect:hover,
+#mgzreports-datepicker select.yearselect:hover {
   border-color: #878787;
   cursor: pointer;
 }
 .admin__control-select:active,
-.ui-datepicker .ui-datepicker-title select:active {
+.ui-datepicker .ui-datepicker-title select:active,
+#mgzreports-datepicker select.monthselect:active,
+#mgzreports-datepicker select.yearselect:active {
   background-image: url('../images/arrows-bg.svg'), linear-gradient(#e3e3e3, #e3e3e3), linear-gradient(#007bdb, #007bdb);
   background-position: calc(100% - 12px) 13px, 100%, calc(100% - 3.2rem) 0;
   border-color: #007bdb;
 }
 .admin__control-select::-ms-expand,
-.ui-datepicker .ui-datepicker-title select::-ms-expand {
+.ui-datepicker .ui-datepicker-title select::-ms-expand,
+#mgzreports-datepicker select.monthselect::-ms-expand,
+#mgzreports-datepicker select.yearselect::-ms-expand {
   display: none;
 }
 option:empty {
@@ -1110,7 +1128,9 @@ option:empty {
   z-index: 1;
 }
 .admin__control-addon .admin__control-select,
-.admin__control-addon .ui-datepicker .ui-datepicker-title select {
+.admin__control-addon .ui-datepicker .ui-datepicker-title select,
+.admin__control-addon #mgzreports-datepicker select.monthselect,
+.admin__control-addon #mgzreports-datepicker select.yearselect {
   width: auto;
 }
 .admin__control-addon .admin__control-text {
@@ -1331,7 +1351,11 @@ option:empty {
 .admin__control-table td > .admin__control-text,
 .admin__control-table th > .admin__control-text,
 .admin__control-table td > .ui-datepicker .ui-datepicker-title select,
-.admin__control-table th > .ui-datepicker .ui-datepicker-title select {
+.admin__control-table th > .ui-datepicker .ui-datepicker-title select,
+.admin__control-table td > #mgzreports-datepicker select.monthselect,
+.admin__control-table th > #mgzreports-datepicker select.monthselect,
+.admin__control-table td > #mgzreports-datepicker select.yearselect,
+.admin__control-table th > #mgzreports-datepicker select.yearselect {
   width: 100%;
 }
 .admin__control-table td._hidden,
@@ -1787,7 +1811,9 @@ option:empty {
 .admin__field-control._with-tooltip > .admin__control-select,
 .admin__field-control._with-tooltip > .admin__control-text,
 .admin__field-control._with-tooltip > .admin__control-textarea,
-.admin__field-control._with-tooltip > .ui-datepicker .ui-datepicker-title select {
+.admin__field-control._with-tooltip > .ui-datepicker .ui-datepicker-title select,
+.admin__field-control._with-tooltip > #mgzreports-datepicker select.monthselect,
+.admin__field-control._with-tooltip > #mgzreports-datepicker select.yearselect {
   max-width: calc(100% - 45px - 4px);
 }
 .admin__field-control._with-tooltip .admin__field-tooltip {
@@ -2000,7 +2026,9 @@ label.mage-error {
   text-align: left;
 }
 .admin__field-group-columns .admin__control-select,
-.admin__field-group-columns .ui-datepicker .ui-datepicker-title select {
+.admin__field-group-columns .ui-datepicker .ui-datepicker-title select,
+.admin__field-group-columns #mgzreports-datepicker select.monthselect,
+.admin__field-group-columns #mgzreports-datepicker select.yearselect {
   width: 100%;
 }
 .admin__field-group-additional {
@@ -2317,7 +2345,9 @@ fieldset[disabled] .address-list .action-delete {
   top: 50%;
 }
 .data-grid .head-massaction .admin__control-select,
-.data-grid .head-massaction .ui-datepicker .ui-datepicker-title select {
+.data-grid .head-massaction .ui-datepicker .ui-datepicker-title select,
+.data-grid .head-massaction #mgzreports-datepicker select.monthselect,
+.data-grid .head-massaction #mgzreports-datepicker select.yearselect {
   min-width: 6rem;
 }
 .data-grid .data-grid-filters td {
@@ -2445,21 +2475,27 @@ fieldset[disabled] .address-list .action-delete {
   float: left;
 }
 .admin__data-grid-toolbar .admin__control-filter .admin__control-select,
-.admin__data-grid-toolbar .admin__control-filter .ui-datepicker .ui-datepicker-title select {
+.admin__data-grid-toolbar .admin__control-filter .ui-datepicker .ui-datepicker-title select,
+.admin__data-grid-toolbar .admin__control-filter #mgzreports-datepicker select.monthselect,
+.admin__data-grid-toolbar .admin__control-filter #mgzreports-datepicker select.yearselect {
   margin-right: 0.7rem;
 }
 .admin__data-grid-toolbar .admin__data-grid-export {
   float: right;
 }
 .admin__data-grid-toolbar .admin__data-grid-export .admin__control-select,
-.admin__data-grid-toolbar .admin__data-grid-export .ui-datepicker .ui-datepicker-title select {
+.admin__data-grid-toolbar .admin__data-grid-export .ui-datepicker .ui-datepicker-title select,
+.admin__data-grid-toolbar .admin__data-grid-export #mgzreports-datepicker select.monthselect,
+.admin__data-grid-toolbar .admin__data-grid-export #mgzreports-datepicker select.yearselect {
   margin-right: 0.7rem;
 }
 .admin__data-grid-toolbar .admin__grid-massaction {
   float: left;
 }
 .admin__data-grid-toolbar .admin__grid-massaction .admin__control-select,
-.admin__data-grid-toolbar .admin__grid-massaction .ui-datepicker .ui-datepicker-title select {
+.admin__data-grid-toolbar .admin__grid-massaction .ui-datepicker .ui-datepicker-title select,
+.admin__data-grid-toolbar .admin__grid-massaction #mgzreports-datepicker select.monthselect,
+.admin__data-grid-toolbar .admin__grid-massaction #mgzreports-datepicker select.yearselect {
   margin-right: 0.7rem;
 }
 .admin__data-grid-toolbar .admin__grid-massaction + .admin__control-text {
@@ -2476,11 +2512,15 @@ fieldset[disabled] .address-list .action-delete {
 }
 .admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form .admin__control-select ~ button,
 .admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form .ui-datepicker .ui-datepicker-title select ~ button,
+.admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form #mgzreports-datepicker select.monthselect ~ button,
+.admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form #mgzreports-datepicker select.yearselect ~ button,
 .admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form .admin__control-select ~ .block-footer .action-add {
   display: none;
 }
 .admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form .admin__control-select._selected ~ button,
 .admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form .ui-datepicker .ui-datepicker-title select._selected ~ button,
+.admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form #mgzreports-datepicker select.monthselect._selected ~ button,
+.admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form #mgzreports-datepicker select.yearselect._selected ~ button,
 .admin__data-grid-toolbar .admin__grid-massaction .admin__grid-massaction-form .admin__control-select._selected ~ .block-footer .action-add {
   display: inline-block;
 }
@@ -9640,6 +9680,867 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 .recaptcha_frontend_type_for_recaptcha_frontend_info_heading_notice strong {
   color: #e22626;
 }
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) 2016-2018 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) 2016-2018 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) 2016-2018 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+@font-face {
+  font-family: 'Mageplaza Icons';
+  src: url('../Mageplaza_Core/fonts/mageplaza-icons/mageplaza-icons.woff2') format('woff2'), url('../Mageplaza_Core/fonts/mageplaza-icons/mageplaza-icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+}
+.admin__menu .item-menu.parent.level-0 > a:before {
+  content: '\e900';
+  font-family: 'Mageplaza Icons';
+  font-size: 2rem;
+  padding-top: .2rem;
+}
+.row_mageplaza_module_version .value {
+  vertical-align: bottom !important;
+}
+.row_mageplaza_module_version .value .special {
+  font-weight: 600;
+}
+#mageplaza-module-messages {
+  max-width: 75%;
+  margin: 0 auto -35px;
+}
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_LayeredNavigation
+ * @copyright   Copyright (c) 2017 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+.admin__menu #menu-mageplaza-core-menu .item-layer.parent.level-1 > strong:before {
+  content: '\e617';
+  font-family: 'Admin Icons';
+  font-size: 1.5rem;
+  margin-right: .8rem;
+}
+.bfb-checkbox-item,
+.bfb-radio-item {
+  margin-top: 0.7rem;
+}
+.mgz-control-radio,
+.mgz-control-checkbox {
+  cursor: pointer;
+  opacity: .01;
+  overflow: hidden;
+  position: absolute !important;
+  vertical-align: top;
+}
+.mgz-control-radio:after,
+.mgz-control-checkbox:after {
+  display: none;
+}
+.mgz-control-radio + label,
+.mgz-control-checkbox + label {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: sub;
+}
+.mgz-control-radio + label:before,
+.mgz-control-checkbox + label:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Magezon-Icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #adadad;
+  color: transparent;
+  float: left;
+  height: 1.6rem;
+  text-align: center;
+  vertical-align: top;
+  width: 1.6rem;
+}
+.mgz-control-radio + label,
+.mgz-control-checkbox + label {
+  padding-left: 2.2rem;
+}
+.mgz-control-radio + label:before,
+.mgz-control-checkbox + label:before {
+  margin: 1px 0 0 -2.2rem;
+}
+.mgz-control-radio:checked + label:before,
+.mgz-control-checkbox:checked + label:before {
+  color: #514943;
+}
+.mgz-control-radio.disabled + label,
+.mgz-control-checkbox.disabled + label,
+.mgz-control-radio[disabled] + label,
+.mgz-control-checkbox[disabled] + label {
+  color: #303030;
+  cursor: default;
+  opacity: .5;
+}
+.mgz-control-radio.disabled + label:before,
+.mgz-control-checkbox.disabled + label:before,
+.mgz-control-radio[disabled] + label:before,
+.mgz-control-checkbox[disabled] + label:before {
+  background-color: #e9e9e9;
+  border-color: #adadad;
+  cursor: default;
+}
+._keyfocus .mgz-control-radio:not([disabled]):focus + label:before,
+._keyfocus .mgz-control-checkbox:not([disabled]):focus + label:before,
+._keyfocus .mgz-control-radio:not(.disabled):focus + label:before,
+._keyfocus .mgz-control-checkbox:not(.disabled):focus + label:before {
+  border-color: #007bdb;
+}
+.mgz-control-radio:not([disabled]):hover + label:before,
+.mgz-control-checkbox:not([disabled]):hover + label:before,
+.mgz-control-radio:not(.disabled):hover + label:before,
+.mgz-control-checkbox:not(.disabled):hover + label:before {
+  border-color: #878787;
+}
+.mgz-control-radio + label:before {
+  border-radius: 1.6rem;
+  content: '';
+  transition: border-color 0.1s linear, color 0.1s ease-in;
+}
+.mgz-control-radio.mgz-control-radio + label:before {
+  line-height: 140%;
+}
+.mgz-control-radio:checked + label {
+  position: relative;
+}
+.mgz-control-radio:checked + label:after {
+  background-color: #514943;
+  border-radius: 50%;
+  content: '';
+  height: 10px;
+  left: 3px;
+  position: absolute;
+  top: 4px;
+  width: 10px;
+}
+.mgz-control-radio:checked:not([disabled]):hover,
+.mgz-control-radio:checked:not(.disabled):hover {
+  cursor: default;
+}
+.mgz-control-radio:checked:not([disabled]):hover + label,
+.mgz-control-radio:checked:not(.disabled):hover + label {
+  cursor: default;
+}
+.mgz-control-radio:checked:not([disabled]):hover + label:before,
+.mgz-control-radio:checked:not(.disabled):hover + label:before {
+  border-color: #adadad;
+}
+.mgz-control-checkbox + label:before {
+  border-radius: 1px;
+  content: '';
+  font-size: 0;
+  transition: font-size 0.1s ease-out, color 0.1s ease-out, border-color 0.1s linear;
+}
+.mgz-control-checkbox:checked + label:before {
+  content: '\e62d';
+  font-size: 1.1rem;
+  line-height: 125%;
+}
+.mgz__actions-switch {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.admin__field-control .mgz__actions-switch {
+  line-height: 3.2rem;
+}
+.mgz__actions-switch + .admin__field-service {
+  min-width: 34rem;
+}
+.mgz__actions-switch-checkbox {
+  position: absolute !important;
+}
+._disabled .mgz__actions-switch-checkbox + .mgz__actions-switch-label,
+.mgz__actions-switch-checkbox.disabled + .mgz__actions-switch-label {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.mgz__actions-switch-checkbox:checked + .mgz__actions-switch-label:before {
+  left: 15px;
+}
+.mgz__actions-switch-checkbox:checked + .mgz__actions-switch-label:after {
+  background: #79a22e;
+}
+.mgz__actions-switch-checkbox:checked + .mgz__actions-switch-label .mgz__actions-switch-text:before {
+  content: attr(data-text-on);
+}
+._error .mgz__actions-switch-checkbox + .mgz__actions-switch-label:before,
+._error .mgz__actions-switch-checkbox + .mgz__actions-switch-label:after {
+  border-color: #e22626;
+}
+.mgz__actions-switch-label {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  position: relative;
+  user-select: none;
+  vertical-align: middle;
+}
+.mgz__actions-switch-label:before,
+.mgz__actions-switch-label:after {
+  left: 0;
+  position: absolute;
+  right: auto;
+  top: 0;
+}
+.mgz__actions-switch-label:before {
+  background: #ffffff;
+  border: 1px solid #aaa6a0;
+  border-radius: 100%;
+  content: '';
+  display: block;
+  height: 22px;
+  transition: left 0.2s ease-in 0s;
+  width: 22px;
+  z-index: 1;
+}
+.mgz__actions-switch-label:after {
+  background: #e3e3e3;
+  border: 1px solid #aaa6a0;
+  border-radius: 12px;
+  content: '';
+  display: block;
+  height: 22px;
+  transition: background 0.2s ease-in 0s;
+  width: 37px;
+  z-index: 0;
+}
+.mgz__actions-switch-text:before {
+  content: attr(data-text-off);
+  padding-left: 47px;
+  white-space: nowrap;
+}
+.mgzFlex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.mgz-invisible {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+#mgzreport .mgzreport-header {
+  background: #f8f8f8;
+  border-bottom: 1px solid #e3e3e3;
+  border-top: 1px solid #e3e3e3;
+  padding: 1.5rem;
+  margin: 0 0 3rem;
+}
+#mgzreport .mgzreport-header:before,
+#mgzreport .mgzreport-header:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+#mgzreport .mgzreport-header > div {
+  margin-right: 10px;
+  float: left;
+  cursor: pointer;
+}
+#mgzreport .mgzreport-header .admin__action-multiselect-wrap {
+  display: inline-block;
+  min-width: 200px;
+}
+#mgzreport .mgzreport-header .admin__action-multiselect-wrap .action-menu,
+#mgzreport .mgzreport-header .admin__action-multiselect-wrap .abs-action-menu .action-submenu,
+#mgzreport .mgzreport-header .admin__action-multiselect-wrap .action-menu .action-submenu,
+#mgzreport .mgzreport-header .admin__action-multiselect-wrap .actions-split .dropdown-menu .action-submenu,
+#mgzreport .mgzreport-header .admin__action-multiselect-wrap .actions-split .action-menu .action-submenu {
+  min-width: 400px;
+}
+#mgzreport-store {
+  display: inline-block;
+}
+#mgzreport-store .admin__action-multiselect-dropdown:before {
+  display: none;
+}
+#mgzreport-store .admin__action-dropdown-wrap {
+  z-index: 99;
+}
+#mgzreport-store .admin__action-dropdown-menu {
+  min-width: 220px;
+  left: 0;
+}
+#mgzreport-store ul {
+  list-style: none;
+}
+#mgzreport-store li > ul {
+  padding-left: 2.2rem;
+}
+#mgzreport-store .admin__action-dropdown-menu {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 0;
+}
+#mgzreport-store .admin__action-dropdown-menu li > .action-menu-item {
+  color: #41362f;
+  display: block;
+  text-decoration: none;
+  padding-left: .5em;
+  padding-right: 1.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.1s linear;
+  padding: 0.6rem 0.5rem;
+}
+#mgzreport-store .admin__action-dropdown-menu li > .action-menu-item:hover {
+  background-color: #e0f6fe;
+  color: #41362f;
+}
+#mgzreport-store .admin__action-dropdown-menu li._parent > .action-menu-item {
+  color: #adadad;
+}
+#mgzreport-store .admin__action-dropdown-menu li._parent > .action-menu-item:hover {
+  background: transparent;
+}
+#mgzreport-store .admin__action-dropdown-wrap .admin__action-dropdown {
+  background: #fff;
+  border: 1px solid #adadad;
+  border-radius: 2px;
+  padding: .6rem 2.5em .6rem 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  max-width: 180px;
+}
+#mgzreport-store .admin__action-dropdown-wrap.active .admin__action-dropdown {
+  border: 1px solid #007bdb;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+#mgzreport-store .admin__action-dropdown-wrap.active .admin__action-dropdown-text:after {
+  left: 0;
+}
+#mgzreports-datepicker {
+  box-sizing: border-box;
+  display: none;
+  opacity: 0.98;
+  padding: 23px 20px;
+  width: auto;
+  z-index: 999999 !important;
+  margin: 0;
+}
+#mgzreports-datepicker:before {
+  background: #ffffff;
+  border: 1px solid #007bdb;
+  bottom: 3px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  content: '';
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 3px;
+  z-index: -1;
+}
+#mgzreports-datepicker:after {
+  display: none;
+}
+#mgzreports-datepicker .calendar-time .hourselect,
+#mgzreports-datepicker .calendar-time .minuteselect,
+#mgzreports-datepicker .calendar-time .ampmselect {
+  font-size: 14px;
+}
+#mgzreports-datepicker select.monthselect {
+  margin-right: 6%;
+}
+#mgzreports-datepicker.daterangepicker .calendar-table th,
+#mgzreports-datepicker.daterangepicker .calendar-table td {
+  width: 38px;
+  height: 38px;
+  font-size: 14px;
+  font-weight: 600;
+}
+#mgzreports-datepicker.daterangepicker .calendar-table thead tr th {
+  font-weight: 700;
+}
+#mgzreports-datepicker.daterangepicker .calendar-table tbody td {
+  border: 1px solid #adadad;
+}
+#mgzreports-datepicker.daterangepicker .calendar-table .next span,
+#mgzreports-datepicker.daterangepicker .calendar-table .prev span {
+  padding: 5px;
+}
+#mgzreports-datepicker.daterangepicker td.off,
+#mgzreports-datepicker.daterangepicker td.disabled,
+#mgzreports-datepicker.daterangepicker option.disabled {
+  background: #f5f5f5;
+  color: #999999;
+  text-decoration: none;
+  cursor: default;
+}
+#mgzreports-datepicker.daterangepicker .drp-calendar {
+  max-width: 100%;
+}
+#mgzreports-datepicker.daterangepicker td.in-range,
+#mgzreports-datepicker.daterangepicker td.active,
+#mgzreports-datepicker.daterangepicker td.active:hover {
+  background: #007dbd;
+  color: #FFF;
+}
+#mgzreports-datepicker.daterangepicker td.active,
+#mgzreports-datepicker.daterangepicker td.start-date,
+#mgzreports-datepicker.daterangepicker td.end-date {
+  border-radius: 0;
+}
+#mgzreports-datepicker .drp-selected {
+  font-size: 1.4rem;
+}
+#mgzreports-datepicker .drp-buttons {
+  padding-top: 20px;
+}
+#mgzreports-datepicker .drp-buttons .btn {
+  font-size: 1.4rem;
+  padding: 0.6rem 1em 0.6rem;
+}
+#mgzreports-datepicker .ranges li.active {
+  background: #007dbd;
+}
+.mgzreport-daterangepicker {
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+}
+.mgzreport-daterangepicker .admin__control-text {
+  border-radius: 2px;
+  display: block !important;
+}
+.mgzreport-daterangepicker .datepicker-active {
+  border-color: #007bdb;
+}
+.mgzreport-daterangepicker .arrow {
+  display: block;
+  float: right;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+.mgzreport-daterangepicker .arrow:after {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjMDEwMjAyIiBkPSJNMCA2aDN2M0gwVjZ6bTQgM2gzVjZINHYzem00IDBoM1Y2SDh2M3ptNCAwaDNWNmgtM3Yzem0wLTd2M2gzVjJoLTN6TTggNWgzVjJIOHYzek00IDVoM1YySDR2M3ptLTQgOGgzdi0zSDB2M3ptNCAwaDN2LTNINHYzem00IDBoM3YtM0g4djN6Ii8+PC9zdmc+");
+  content: ' ';
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.mgzreport-chart-wrapper {
+  width: 800px;
+  margin: 0 auto 5rem auto;
+  position: relative;
+}
+.mgzreport-chart-header {
+  text-align: center;
+}
+.mgzreport-chart-header > div {
+  padding: 2.75em 0;
+  height: 26%;
+  text-align: center;
+  width: 22%;
+  display: inline-block;
+}
+.mgzreport-chart-header > div .one {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  font-size: 2em;
+}
+.mgzreport-chart-header .mgzreport-views .two {
+  color: #ed8542;
+}
+.mgzreport-chart-header .mgzreport-clicks .two {
+  color: #6497f3;
+}
+.mgzreport-chart-header .mgzreport-closes .two {
+  color: #34D7A1;
+}
+.mgzreport-chart-header .mgzreport-conversion .two {
+  color: #5da85d;
+}
+@font-face {
+  font-family: 'Magezon-Icons';
+  src: url('../Magezon_Core/fonts/mgz_icons.eot');
+  src: url('../Magezon_Core/fonts/mgz_icons.eot?#iefix') format('embedded-opentype'), url('../Magezon_Core/fonts/mgz_icons.woff') format('woff'), url('../Magezon_Core/fonts/mgz_icons.woff') format('woff'), url('../Magezon_Core/fonts/mgz_icons.ttf') format('truetype'), url('../Magezon_Core/fonts/mgz_icons.svg#fonts') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.magezon-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Magezon-Icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MgzFontAwesome {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#menu-magezon-core-extensions > a:before {
+  content: url('../Magezon_Core/images/logo.svg');
+}
+#menu-magezon-core-extensions > a:after {
+  content: url('../Magezon_Core/images/logo_hover.svg');
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+#menu-magezon-core-extensions:hover > a:before,
+#menu-magezon-core-extensions._active > a:before {
+  content: url('../Magezon_Core/images/logo_hover.svg');
+}
+.submenu li[data-ui-id*="menu-magezon-"] > a,
+#nav li li[data-ui-id*="menu-magezon-"].parent > a,
+#nav li li[data-ui-id*="menu-magezon-"].parent > strong {
+  position: relative;
+}
+.submenu li[data-ui-id*="menu-magezon-"] > a > span:after,
+#nav li li[data-ui-id*="menu-magezon-"].parent > a > span:after,
+#nav li li[data-ui-id*="menu-magezon-"].parent > strong:after {
+  content: url('../Magezon_Core/images/logo.svg');
+  float: right;
+  margin-top: -3px;
+  position: absolute;
+  right: 5px;
+}
+#menu-magezon-core-extensions .submenu li[data-ui-id*="menu-magezon-"] a > span:after,
+#menu-magezon-core-extensions .submenu li[data-ui-id*="menu-magezon-"] strong:after,
+.submenu li[data-ui-id*="menu-magezon-"].parent li[data-ui-id*="menu-magezon-"] > a > span:after {
+  display: none;
+}
+#mgz-tabs .admin__page-nav-item {
+  display: inline-block;
+  border-left: 0;
+  border-top: 3px solid transparent;
+}
+#mgz-tabs .admin__page-nav-item a {
+  border-bottom: 0;
+  text-align: center;
+  padding: 2rem;
+}
+#mgz-tabs .admin__page-nav-item._active .admin__page-nav-link,
+#mgz-tabs .admin__page-nav-item.ui-state-active .admin__page-nav-link {
+  font-weight: normal;
+}
+#mgz-tabs .admin__page-nav-item:hover {
+  border-top-color: #e4e4e4;
+}
+#mgz-tabs .admin__page-nav-item.ui-state-active {
+  border-top-color: #eb5202;
+  border-left: 0;
+}
+#mgz-tabs .admin__page-nav-items {
+  padding: 0;
+}
+.admin__field-control.control {
+  position: relative;
+}
+.mgz-form_image input {
+  width: 100%;
+  padding-right: 120px !important;
+}
+.mgz-form_image .action-add-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #514943;
+  color: #FFF;
+  border-color: #514943;
+  font-weight: normal;
+}
+.mgz-form_image .action-add-image:hover {
+  background-color: #35302c;
+  border-color: #35302c;
+  box-shadow: 0 0 0 1px #007bdb;
+}
+.mgz-form_image .image-preview {
+  display: none;
+  margin-top: 15px;
+}
+.minicolors {
+  width: 100% !important;
+}
+.minicolors input {
+  padding-left: 32px !important;
+}
+.minicolors-theme-default .minicolors-swatch {
+  height: 26px !important;
+  width: 26px !important;
+  top: 3px !important;
+  left: 3px !important;
+  cursor: pointer;
+}
+.admin__menu .item-extensions .submenu .column:only-of-type .submenu-group-title,
+.admin__menu .item-extensions.level-0 > .submenu > ul > .level-1:only-of-type > .submenu-group-title {
+  display: block;
+}
+.mgz-status {
+  display: block;
+  font-weight: bold;
+  line-height: 17px;
+  padding: 0 3px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  max-width: 90px;
+  margin: 0 auto;
+}
+.mgz-status_1 {
+  background: #d0e5a9 none repeat scroll 0 0;
+  border-color: #5b8116;
+  color: #185b00;
+}
+.mgz-status_0 {
+  background: #f9d4d4 none repeat scroll 0 0;
+  border-color: #e22626;
+  color: #e22626;
+}
+.data-grid td._date {
+  width: 180px;
+}
+.data-grid td._center {
+  text-align: center;
+}
+.data-grid td._select {
+  width: 120px;
+}
+.mgz-menu.admin__action-dropdown-wrap {
+  z-index: 499;
+}
+.mgz-menu.admin__action-dropdown-wrap a.admin__action-dropdown h1 {
+  background: url('../Magezon_Core/images/logo.png') no-repeat left center;
+  padding-left: 35px;
+  background-size: 25px;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-menu {
+  left: 0;
+  right: auto;
+  width: 500px;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-text:after {
+  left: 0;
+  right: -6px;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-menu > li {
+  width: 50%;
+  float: left;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-menu > li > a {
+  padding: 1.1rem 0.5rem;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-menu > li > a:hover {
+  background-color: #e0f6fe;
+  color: #41362f;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-menu > li.separator {
+  border-top: 1px solid #d1d1d1;
+  margin: 1.8rem 0;
+  width: 100%;
+}
+.mgz-menu.admin__action-dropdown-wrap .admin__action-dropdown-menu > li.wide {
+  width: 100%;
+}
+.admin__data-grid-action-columns-menu .col_store_id {
+  display: none !important;
+}
+.mgz-filemanager._disabled button,
+.mgz-filemanager._disabled .block-footer .action-add {
+  opacity: .6;
+}
+.mgz-ui .admin__action-multiselect-wrap li {
+  display: block;
+}
+.mgz-ui .admin__action-multiselect-crumb .action-close {
+  padding: 0;
+}
+.mgz-ui .admin__action-multiselect-crumb .action-close:before {
+  font-size: inherit;
+}
+.mgz-heading {
+  margin: 30px 0;
+  padding: 15px 0;
+  text-align: center;
+  background: #373330;
+  color: #FFF;
+  font-size: 1.6rem;
+}
+.mgz-system-heading {
+  font-size: 15px;
+  border-left: #eb5202 solid 5px;
+  padding: 8px 12px;
+  text-align: left !important;
+  margin-left: 10%;
+  margin-top: 20px;
+  background: #373330;
+  color: #FFF;
+  font-weight: 400;
+}
+.mgz-action-menu {
+  list-style: none;
+  margin-bottom: 0;
+}
+.mgz-action-menu li {
+  margin-bottom: 8px;
+}
+.mgz-action-menu li:last-child {
+  margin-bottom: 0;
+}
+.hide-control-value .admin__grid-control-value {
+  display: none;
+}
+.admin__grid-control .mgz-position {
+  width: 80px;
+}
+.mgz-extention .page-actions._fixed {
+  background: url('../Magezon_Core/images/logo.png') no-repeat 10px center #f8f8f8;
+  padding-left: 45px;
+  background-size: 25px;
+}
+.magezon-extensions .admin__page-nav-title {
+  background-image: url('../Magezon_Core/images/logo.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: 1.8rem center !important;
+  padding-left: 42px;
+  background-size: 20px !important;
+}
+.magezon-extensions .admin__page-nav-title:hover {
+  background-color: #f1f1f1 !important;
+}
+.mgz-text-left {
+  text-align: left;
+}
+.mgz-text-right {
+  text-align: right;
+}
+.mgz-text-center {
+  text-align: center;
+}
+.mgz-text-justify {
+  text-align: justify;
+}
+.mgz-hidden {
+  display: none;
+}
+.mgz-hide {
+  display: none;
+}
+.mgz-visible {
+  display: block;
+}
+.mgz_fit {
+  width: 1% !important;
+}
+.mgz_center {
+  text-align: center;
+}
+.mgzpagebuilder-template-edit .mgz-mytemplaes,
+.mgzpagebuilder-template-edit .mgz-profile-settings {
+  display: none;
+}
 .hosted-control {
   height: 3.4rem;
   position: relative;
@@ -9713,6 +10614,12 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   color: #ee7d7d;
   height: 0;
   opacity: 0;
+}
+.admin__field[data-index^="sw_menu"] button.action-wysiwyg,
+.admin__field[data-index^="sw_ocat"] button.action-wysiwyg,
+.admin__field[data-index^="sw_menu"] .block-footer .action-add.action-wysiwyg,
+.admin__field[data-index^="sw_ocat"] .block-footer .action-add.action-wysiwyg {
+  display: none;
 }
 /*
  * @copyright  Vertex. All rights reserved.  https://www.vertexinc.com/
@@ -11082,7 +11989,9 @@ fieldset[disabled] .message-system-action-dropdown {
   color: #ef672f;
 }
 .page-footer .admin__control-select,
-.page-footer .ui-datepicker .ui-datepicker-title select {
+.page-footer .ui-datepicker .ui-datepicker-title select,
+.page-footer #mgzreports-datepicker select.monthselect,
+.page-footer #mgzreports-datepicker select.yearselect {
   max-width: 52rem;
   width: 100%;
 }
@@ -13332,7 +14241,9 @@ input[type='checkbox'].banner-content-checkbox + .addafter {
   margin: 0 0 3rem;
 }
 .steps-wizard .steps-wizard-section .admin__field-control .admin__control-select,
-.steps-wizard .steps-wizard-section .admin__field-control .ui-datepicker .ui-datepicker-title select {
+.steps-wizard .steps-wizard-section .admin__field-control .ui-datepicker .ui-datepicker-title select,
+.steps-wizard .steps-wizard-section .admin__field-control #mgzreports-datepicker select.monthselect,
+.steps-wizard .steps-wizard-section .admin__field-control #mgzreports-datepicker select.yearselect {
   min-width: 100%;
 }
 .steps-wizard .steps-wizard-section-title {
@@ -13459,7 +14370,9 @@ input[type='checkbox'].banner-content-checkbox + .addafter {
   text-align: center;
 }
 .customer-newsletter-fieldset.admin__fieldset.multi-website > .admin__field > .admin__field-control table td select.admin__control-select,
-.customer-newsletter-fieldset.admin__fieldset.multi-website > .admin__field > .admin__field-control table td select.ui-datepicker .ui-datepicker-title select {
+.customer-newsletter-fieldset.admin__fieldset.multi-website > .admin__field > .admin__field-control table td select.ui-datepicker .ui-datepicker-title select,
+.customer-newsletter-fieldset.admin__fieldset.multi-website > .admin__field > .admin__field-control table td select#mgzreports-datepicker select.monthselect,
+.customer-newsletter-fieldset.admin__fieldset.multi-website > .admin__field > .admin__field-control table td select#mgzreports-datepicker select.yearselect {
   width: 100%;
 }
 .field-refund-store-credit .admin__control-text {
@@ -14302,14 +15215,18 @@ fieldset[disabled] .release-notification-button-back {
   margin-right: 0.5rem;
 }
 .rma-items .admin__control-select,
-.rma-items .ui-datepicker .ui-datepicker-title select {
+.rma-items .ui-datepicker .ui-datepicker-title select,
+.rma-items #mgzreports-datepicker select.monthselect,
+.rma-items #mgzreports-datepicker select.yearselect {
   max-width: 10rem;
 }
 .rma-items-block .col-actions a {
   margin: 0 0 0.5rem;
 }
 .rma-items-block .col-reason .admin__control-select + .admin__control-text,
-.rma-items-block .col-reason .ui-datepicker .ui-datepicker-title select + .admin__control-text {
+.rma-items-block .col-reason .ui-datepicker .ui-datepicker-title select + .admin__control-text,
+.rma-items-block .col-reason #mgzreports-datepicker select.monthselect + .admin__control-text,
+.rma-items-block .col-reason #mgzreports-datepicker select.yearselect + .admin__control-text {
   margin-top: 0.5rem;
 }
 .select-order-items-block .admin__page-section-title .actions,
@@ -14488,6 +15405,8 @@ fieldset[disabled] .release-notification-button-back {
 }
 .abs-order-tables .col-actions .admin__control-select,
 .abs-order-tables .col-actions .ui-datepicker .ui-datepicker-title select,
+.abs-order-tables .col-actions #mgzreports-datepicker select.monthselect,
+.abs-order-tables .col-actions #mgzreports-datepicker select.yearselect,
 .order-creditmemo-tables .col-actions .admin__control-select,
 .order-tables .col-actions .admin__control-select,
 .order-invoice-tables .col-actions .admin__control-select,
@@ -14698,7 +15617,9 @@ fieldset[disabled] .release-notification-button-back {
   padding: 0 0 2.4rem;
 }
 .order-sidebar .admin__control-select,
-.order-sidebar .ui-datepicker .ui-datepicker-title select {
+.order-sidebar .ui-datepicker .ui-datepicker-title select,
+.order-sidebar #mgzreports-datepicker select.monthselect,
+.order-sidebar #mgzreports-datepicker select.yearselect {
   margin: 0 0 0.5rem;
   width: 100%;
 }
@@ -14797,7 +15718,9 @@ fieldset[disabled] .release-notification-button-back {
   vertical-align: middle;
 }
 .order-sidebar .create-order-sidebar-label + .admin__control-select,
-.order-sidebar .create-order-sidebar-label + .ui-datepicker .ui-datepicker-title select {
+.order-sidebar .create-order-sidebar-label + .ui-datepicker .ui-datepicker-title select,
+.order-sidebar .create-order-sidebar-label + #mgzreports-datepicker select.monthselect,
+.order-sidebar .create-order-sidebar-label + #mgzreports-datepicker select.yearselect {
   margin-top: 1.7rem;
 }
 .order-sidebar .actions .action-secondary {
@@ -15487,7 +16410,9 @@ fieldset[disabled] .release-notification-button-back {
   border-color: #007bdb;
 }
 .staging-preview-item-content .admin__control-select,
-.staging-preview-item-content .ui-datepicker .ui-datepicker-title select {
+.staging-preview-item-content .ui-datepicker .ui-datepicker-title select,
+.staging-preview-item-content #mgzreports-datepicker select.monthselect,
+.staging-preview-item-content #mgzreports-datepicker select.yearselect {
   background-image: url('../images/arrows-bg-light.svg'), linear-gradient(#373330, #373330), linear-gradient(#c3bbb1, #c3bbb1);
   background-position: calc(100% - 12px) -34px, 100%, calc(100% - 3.2rem) 0;
   background-size: auto, 3.2rem 100%, 1px 100%;
@@ -15497,11 +16422,15 @@ fieldset[disabled] .release-notification-button-back {
   color: #ffffff;
 }
 .staging-preview-item-content .admin__control-select:hover,
-.staging-preview-item-content .ui-datepicker .ui-datepicker-title select:hover {
+.staging-preview-item-content .ui-datepicker .ui-datepicker-title select:hover,
+.staging-preview-item-content #mgzreports-datepicker select.monthselect:hover,
+.staging-preview-item-content #mgzreports-datepicker select.yearselect:hover {
   border-color: #ada294;
 }
 .staging-preview-item-content .admin__control-select:focus,
-.staging-preview-item-content .ui-datepicker .ui-datepicker-title select:focus {
+.staging-preview-item-content .ui-datepicker .ui-datepicker-title select:focus,
+.staging-preview-item-content #mgzreports-datepicker select.monthselect:focus,
+.staging-preview-item-content #mgzreports-datepicker select.yearselect:focus {
   background-image: url('../images/arrows-bg-light.svg'), linear-gradient(#373330, #373330), linear-gradient(#007bdb, #007bdb);
   background-position: calc(100% - 12px) 13px, 100%, calc(100% - 3.2rem) 0;
   border-color: #007bdb;
@@ -15516,7 +16445,9 @@ fieldset[disabled] .release-notification-button-back {
   width: 12rem;
 }
 .staging-preview-item-segment .admin__control-select,
-.staging-preview-item-segment .ui-datepicker .ui-datepicker-title select {
+.staging-preview-item-segment .ui-datepicker .ui-datepicker-title select,
+.staging-preview-item-segment #mgzreports-datepicker select.monthselect,
+.staging-preview-item-segment #mgzreports-datepicker select.yearselect {
   min-width: 275px;
 }
 .staging-preview-content {
@@ -16100,7 +17031,9 @@ fieldset[disabled] .release-notification-button-back {
   display: none;
 }
 .admin__action-grid-select .admin__control-select,
-.admin__action-grid-select .ui-datepicker .ui-datepicker-title select {
+.admin__action-grid-select .ui-datepicker .ui-datepicker-title select,
+.admin__action-grid-select #mgzreports-datepicker select.monthselect,
+.admin__action-grid-select #mgzreports-datepicker select.yearselect {
   margin: -0.5rem 0.5rem 0 0;
   padding-bottom: .6rem;
   padding-top: .6rem;
@@ -16172,11 +17105,15 @@ fieldset[disabled] .release-notification-button-back {
 .admin__data-grid-filters-wrap .admin__control-text,
 .admin__data-grid-filters-wrap .admin__control-select,
 .admin__data-grid-filters-wrap .admin__action-multiselect,
-.admin__data-grid-filters-wrap .ui-datepicker .ui-datepicker-title select {
+.admin__data-grid-filters-wrap .ui-datepicker .ui-datepicker-title select,
+.admin__data-grid-filters-wrap #mgzreports-datepicker select.monthselect,
+.admin__data-grid-filters-wrap #mgzreports-datepicker select.yearselect {
   font-size: 1.3rem;
 }
 .admin__data-grid-filters-wrap .admin__control-select,
-.admin__data-grid-filters-wrap .ui-datepicker .ui-datepicker-title select {
+.admin__data-grid-filters-wrap .ui-datepicker .ui-datepicker-title select,
+.admin__data-grid-filters-wrap #mgzreports-datepicker select.monthselect,
+.admin__data-grid-filters-wrap #mgzreports-datepicker select.yearselect {
   height: 3.2rem;
   padding-top: 0.5rem;
 }
@@ -16186,7 +17123,9 @@ fieldset[disabled] .release-notification-button-back {
 }
 .admin__data-grid-filters-wrap .admin__control-text._has-datepicker,
 .admin__data-grid-filters-wrap .admin__control-select,
-.admin__data-grid-filters-wrap .ui-datepicker .ui-datepicker-title select {
+.admin__data-grid-filters-wrap .ui-datepicker .ui-datepicker-title select,
+.admin__data-grid-filters-wrap #mgzreports-datepicker select.monthselect,
+.admin__data-grid-filters-wrap #mgzreports-datepicker select.yearselect {
   width: 100%;
 }
 .admin__data-grid-filters {
@@ -17208,7 +18147,9 @@ body._in-resize * {
 }
 .data-grid._dragging-copy._in-edit .data-grid-editable-row .admin__control-text,
 .data-grid._dragging-copy._in-edit .data-grid-editable-row .admin__control-select,
-.data-grid._dragging-copy._in-edit .data-grid-editable-row .ui-datepicker .ui-datepicker-title select {
+.data-grid._dragging-copy._in-edit .data-grid-editable-row .ui-datepicker .ui-datepicker-title select,
+.data-grid._dragging-copy._in-edit .data-grid-editable-row #mgzreports-datepicker select.monthselect,
+.data-grid._dragging-copy._in-edit .data-grid-editable-row #mgzreports-datepicker select.yearselect {
   opacity: 0.5;
 }
 .data-grid .data-grid-controls-row td {
@@ -17289,7 +18230,9 @@ body._in-resize * {
 }
 .data-grid._in-edit .data-grid-editable-row .admin__control-text,
 .data-grid._in-edit .data-grid-editable-row .admin__control-select,
-.data-grid._in-edit .data-grid-editable-row .ui-datepicker .ui-datepicker-title select {
+.data-grid._in-edit .data-grid-editable-row .ui-datepicker .ui-datepicker-title select,
+.data-grid._in-edit .data-grid-editable-row #mgzreports-datepicker select.monthselect,
+.data-grid._in-edit .data-grid-editable-row #mgzreports-datepicker select.yearselect {
   width: 100%;
 }
 .data-grid._in-edit .data-grid-bulk-edit-panel td {

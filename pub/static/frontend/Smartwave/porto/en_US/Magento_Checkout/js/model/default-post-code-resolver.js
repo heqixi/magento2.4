@@ -1,0 +1,1 @@
+/usr/heqg/magento/magento/vendor/magento/module-checkout/view/base/web/js/model/default-post-code-resolver.js
