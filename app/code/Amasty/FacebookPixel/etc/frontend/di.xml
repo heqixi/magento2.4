@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_FacebookPixel
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Amasty\FacebookPixel\Model\EventData\EventDataGeneratorPool">
+        <arguments>
+            <argument name="eventDataGenerators" xsi:type="array">
+                <item name="productView" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\ProductView</item>
+                <item name="categoryView" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\CategoryView</item>
+                <item name="search" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\Search</item>
+                <item name="initCheckout" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\InitCheckout</item>
+                <item name="purchase" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\Purchase</item>
+                <item name="addToCart" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\AddToCart</item>
+                <item name="addToWishList" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\AddToWishlist</item>
+                <item name="registration" xsi:type="string">Amasty\FacebookPixel\Model\EventData\EventDataGenerator\Registration</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Model\PageViewEventResolver">
+        <arguments>
+            <argument name="events" xsi:type="array">
+                <item name="catalog_product_view" xsi:type="string">productView</item>
+                <item name="catalog_category_view" xsi:type="string">categoryView</item>
+                <item name="catalogsearch_result_index" xsi:type="string">search</item>
+                <item name="checkout_index_index" xsi:type="string">initCheckout</item>
+                <item name="checkout_onepage_success" xsi:type="string">purchase</item>
+                <item name="multishipping_checkout_success" xsi:type="string">purchase</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Model\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Model\Logger\EventLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">facebook_pixel_log</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Amasty\FacebookPixel\Model\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Model\EventData\EventDataGenerator\Purchase">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\CustomerData\EventData">
+        <arguments>
+            <argument name="eventSession" xsi:type="object">Amasty\FacebookPixel\Model\EventSession\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Observer\AddToCartEvent">
+        <arguments>
+            <argument name="eventSession" xsi:type="object">Amasty\FacebookPixel\Model\EventSession\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Observer\AddToWishlistEvent">
+        <arguments>
+            <argument name="eventSession" xsi:type="object">Amasty\FacebookPixel\Model\EventSession\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\FacebookPixel\Observer\RegistrationEvent">
+        <arguments>
+            <argument name="eventSession" xsi:type="object">Amasty\FacebookPixel\Model\EventSession\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="amfacebook-pixel" xsi:type="string">Amasty\FacebookPixel\CustomerData\EventData</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Amasty\FacebookPixel\Model\EventSession\Storage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">Amasty_FacebookPixel</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\FacebookPixel\Model\EventSession">
+        <arguments>
+            <argument name="storage" xsi:type="object">Amasty\FacebookPixel\Model\EventSession\Storage</argument>
+        </arguments>
+    </type>
+</config>

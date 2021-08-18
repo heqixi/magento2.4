@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_FacebookPixel
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_product_add_after">
+        <observer name="Amasty_FacebookPixel::addToCart" instance="Amasty\FacebookPixel\Observer\AddToCartEvent" />
+    </event>
+    <event name="wishlist_product_add_after">
+        <observer name="Amasty_FacebookPixel::addToWishlist" instance="Amasty\FacebookPixel\Observer\AddToWishlistEvent" />
+    </event>
+    <event name="customer_register_success">
+        <observer name="Amasty_FacebookPixel::registrationEvent" instance="Amasty\FacebookPixel\Observer\RegistrationEvent" />
+    </event>
+</config>

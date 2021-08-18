@@ -1,0 +1,30 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_FacebookPixel
+ */
+?>
+<?php
+/**
+ * @var $block Magento\Framework\View\Element\Template
+ * @var $escaper Magento\Framework\Escaper
+ * @var $viewModel Amasty\FacebookPixel\ViewModel\FacebookPixel
+ */
+
+$viewModel = $block->getViewModel();
+?>
+
+<?php if ($viewModel->isFaceBookPixelEnabled()): ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Amasty_FacebookPixel/js/amfb-init": {
+                    "eventsData" : "<?= $escaper->escapeJs($viewModel->getEventDataJson()); ?>",
+                    "isLogEnabled": "<?= $escaper->escapeJs($viewModel->isEventLoggingEnabled()); ?>",
+                    "loggingUrl": "<?= $escaper->escapeUrl($viewModel->getLoggingUrl()) ?>"
+                }
+            }
+        }
+    </script>
+<?php endif; ?>

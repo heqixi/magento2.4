@@ -24,6 +24,77 @@ require.config(config);
  */
 
 var config = {
+    waitSeconds: 0,
+    map: {
+        '*': {
+            'ko': 'knockoutjs/knockout',
+            'knockout': 'knockoutjs/knockout',
+            'mageUtils': 'mage/utils/main',
+            'rjsResolver': 'mage/requirejs/resolver'
+        }
+    },
+    shim: {
+        'jquery/jquery-migrate': ['jquery'],
+        'jquery/jstree/jquery.hotkeys': ['jquery'],
+        'jquery/hover-intent': ['jquery'],
+        'mage/adminhtml/backup': ['prototype'],
+        'mage/captcha': ['prototype'],
+        'mage/new-gallery': ['jquery'],
+        'mage/webapi': ['jquery'],
+        'jquery/ui': ['jquery'],
+        'MutationObserver': ['es6-collections'],
+        'matchMedia': {
+            'exports': 'mediaCheck'
+        },
+        'magnifier/magnifier': ['jquery']
+    },
+    paths: {
+        'jquery/validate': 'jquery/jquery.validate',
+        'jquery/hover-intent': 'jquery/jquery.hoverIntent',
+        'jquery/file-uploader': 'jquery/fileUploader/jquery.fileuploader',
+        'prototype': 'legacy-build.min',
+        'jquery/jquery-storageapi': 'jquery/jquery.storageapi.min',
+        'text': 'mage/requirejs/text',
+        'domReady': 'requirejs/domReady',
+        'spectrum': 'jquery/spectrum/spectrum',
+        'tinycolor': 'jquery/spectrum/tinycolor',
+        'jquery-ui-modules': 'jquery/ui-modules'
+    },
+    deps: [
+        'jquery/jquery-migrate'
+    ],
+    config: {
+        mixins: {
+            'jquery/jstree/jquery.jstree': {
+                'mage/backend/jstree-mixin': true
+            },
+            'jquery': {
+                'jquery/patches/jquery': true
+            }
+        },
+        text: {
+            'headers': {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        }
+    }
+};
+
+require(['jquery'], function ($) {
+    'use strict';
+
+    $.noConflict();
+});
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
     'shim': {
         'extjs/ext-tree': [
             'prototype'
@@ -113,77 +184,6 @@ var config = {
         'jquery/ui': 'jquery/jquery-ui-1.9.2'
     }
 };
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
-    waitSeconds: 0,
-    map: {
-        '*': {
-            'ko': 'knockoutjs/knockout',
-            'knockout': 'knockoutjs/knockout',
-            'mageUtils': 'mage/utils/main',
-            'rjsResolver': 'mage/requirejs/resolver'
-        }
-    },
-    shim: {
-        'jquery/jquery-migrate': ['jquery'],
-        'jquery/jstree/jquery.hotkeys': ['jquery'],
-        'jquery/hover-intent': ['jquery'],
-        'mage/adminhtml/backup': ['prototype'],
-        'mage/captcha': ['prototype'],
-        'mage/new-gallery': ['jquery'],
-        'mage/webapi': ['jquery'],
-        'jquery/ui': ['jquery'],
-        'MutationObserver': ['es6-collections'],
-        'matchMedia': {
-            'exports': 'mediaCheck'
-        },
-        'magnifier/magnifier': ['jquery']
-    },
-    paths: {
-        'jquery/validate': 'jquery/jquery.validate',
-        'jquery/hover-intent': 'jquery/jquery.hoverIntent',
-        'jquery/file-uploader': 'jquery/fileUploader/jquery.fileuploader',
-        'prototype': 'legacy-build.min',
-        'jquery/jquery-storageapi': 'jquery/jquery.storageapi.min',
-        'text': 'mage/requirejs/text',
-        'domReady': 'requirejs/domReady',
-        'spectrum': 'jquery/spectrum/spectrum',
-        'tinycolor': 'jquery/spectrum/tinycolor',
-        'jquery-ui-modules': 'jquery/ui-modules'
-    },
-    deps: [
-        'jquery/jquery-migrate'
-    ],
-    config: {
-        mixins: {
-            'jquery/jstree/jquery.jstree': {
-                'mage/backend/jstree-mixin': true
-            },
-            'jquery': {
-                'jquery/patches/jquery': true
-            }
-        },
-        text: {
-            'headers': {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        }
-    }
-};
-
-require(['jquery'], function ($) {
-    'use strict';
-
-    $.noConflict();
-});
 
 require.config(config);
 })();
@@ -663,6 +663,68 @@ var config = {
     map: {
         '*': {
             fptAttribute: 'Magento_Weee/js/fpt-attribute'
+        }
+    }
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    config: {
+        mixins: {
+            'js/theme': {
+                'Amasty_Base/js/theme': true
+            }
+        }
+    }
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    map: {
+        '*': {
+            'amreports_menu' : 'Amasty_Reports/js/amReportMenu',
+            'amreports_toolbar' : 'Amasty_Reports/js/toolbar',
+            'amreports_linear_charts' : 'Amasty_Reports/js/charts/linearCharts',
+            'amreports_dashboard' : 'Amasty_Reports/js/dashboard',
+            'amreports_simple_column_chart': 'Amasty_Reports/js/charts/simpleColumnChart',
+            'amreports_simple_pie_chart': 'Amasty_Reports/js/charts/simplePieChart',
+            'amreports_chart_country': 'Amasty_Reports/js/charts/chartMap',
+            'amreports_chart_compare': 'Amasty_Reports/js/charts/chartMultiCompare',
+            'amreports_multi_linear_chart': 'Amasty_Reports/js/charts/chartMultiValue',
+            'amreports_multi_column_chart': 'Amasty_Reports/js/charts/multiColumnChart',
+            'amreports_horizontal_column_chart': 'Amasty_Reports/js/charts/horizontalColumnChart',
+            'amreports_tabs': 'Amasty_Reports/js/components/tabs',
+            'amreports_menu_toggle': 'Amasty_Reports/js/components/menuToggle'
+        }
+    },
+
+    shim: {
+        'es6-collections': {
+            deps: ['Amasty_Reports/vendor/amcharts4/plugins/polyfill.min']
+        },
+
+        'Amasty_Reports/vendor/amcharts4/core': {
+            deps: ['es6-collections']
+        },
+
+        'Amasty_Reports/vendor/amcharts4/charts': {
+            deps: ['Amasty_Reports/vendor/amcharts4/core']
+        },
+
+        'Amasty_Reports/vendor/amcharts4/animated': {
+            deps: ['Amasty_Reports/vendor/amcharts4/core']
+        },
+
+        'Amasty_Reports/vendor/amcharts4/maps': {
+            deps: ['Amasty_Reports/vendor/amcharts4/core']
+        },
+
+        'Amasty_Reports/vendor/amcharts4/geodata/worldHigh': {
+            deps: ['Amasty_Reports/vendor/amcharts4/core']
         }
     }
 };

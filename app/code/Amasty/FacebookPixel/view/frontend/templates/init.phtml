@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_FacebookPixel
+ */
+?>
+<?php
+/**
+ * @var $block Magento\Framework\View\Element\Template
+ * @var $escaper Magento\Framework\Escaper
+ * @var $viewModel Amasty\FacebookPixel\ViewModel\FacebookPixel
+ */
+
+$viewModel = $block->getViewModel();
+?>
+<?php if ($viewModel->isFaceBookPixelEnabled()): ?>
+    <?php
+        $pixelId = $escaper->escapeHtml($viewModel->getPixelId());
+        $escapedUrlPixelId = $escaper->encodeUrlParam($pixelId);
+     ?>
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+            t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', <?= /** @noEscape */ $pixelId; ?>);
+        fbq('track', 'PageView');
+    </script>
+    <!-- Facebook Pixel Code -->
+    <noscript>
+        <img height="1" width="1" style="display:none" alt="Facebook Pixel"
+             src="https://www.facebook.com/tr?id=<?= /** @noEscape */ $escapedUrlPixelId; ?>&ev=PageView&noscript=1"
+        />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+<?php endif; ?>

@@ -92,6 +92,21 @@ location ~* ^/update($|/) {
 }
 
 location / {
+    if ($request_method = 'OPTIONS') {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        #
+        # Custom headers and headers various browsers *should* be OK with but aren't
+        #
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+        #
+        # Tell client that this pre-flight info is valid for 20 days
+        #
+        add_header 'Access-Control-Max-Age' 1728000;
+        add_header 'Content-Type' 'text/plain charset=UTF-8';
+        add_header 'Content-Length' 0;
+        return 204;
+    }
     try_files $uri $uri/ /index.php$is_args$args;
 }
 
@@ -106,6 +121,9 @@ location /pub/ {
 location /static/ {
     # Uncomment the following line in production mode
     # expires max;
+
+    add_header Access-Control-Allow-Origin "*";
+    #add_header Access-Control-Allow-Methods GET, POST, OPTIONS;
 
     # Remove signature of the static files that is used to overcome the browser cache
     location ~ ^/static/version {
@@ -217,6 +235,8 @@ location ~ ^/(index|get|static|errors/report|errors/404|errors/503|health_check)
 
     fastcgi_index  index.php;
     fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
+    fastcgi_param MAGE_RUN_CODE $MAGE_RUN_CODE;
     include        fastcgi_params;
 }
 

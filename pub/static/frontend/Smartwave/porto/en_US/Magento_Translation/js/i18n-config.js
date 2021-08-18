@@ -1,1 +1,16 @@
-/usr/heqg/magento/magento/vendor/magento/module-translation/view/base/web/js/i18n-config.js
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+(function () {
+    'use strict';
+
+    require.config({
+        config: {
+            'Magento_Ui/js/lib/knockout/bindings/i18n': {
+                inlineTranslation: true
+            }
+        }
+    });
+})();

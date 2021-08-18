@@ -1,1 +1,5 @@
-/usr/heqg/magento/magento/app/code/Magezon/Builder/view/frontend/web/css/common.css
+@media all and (min-width: 768px) {
+  html {
+    height: auto !important;
+  }
+}

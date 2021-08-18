@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_FacebookPixel
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="amasty.facebook.pixel.init"
+                   template="Amasty_FacebookPixel::init.phtml"
+                   ifconfig = "amasty_facebook_pixel/general/is_enabled"
+                   before="-">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Amasty\FacebookPixel\ViewModel\FacebookPixel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="fbe.pixel.view_content"
+                   template="Amasty_FacebookPixel::event.phtml"
+                   ifconfig = "amasty_facebook_pixel/general/is_enabled"
+                   before="-">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Amasty\FacebookPixel\ViewModel\FacebookPixel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
